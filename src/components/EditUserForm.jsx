@@ -8,11 +8,14 @@ const EditUserForm = ({currentUser, UpdateUser}) => {
         defaultValues: currentUser ? currentUser : initialFormState,
     });
     
-    setValue('name', currentUser ? currentUser.name : '');
-    setValue('username', currentUser ? currentUser.username : '');
-    // setValue("name",currentUser.name) // para arreglar el problemas de que no actualiza el input en pantalla si le doy avarias veces a editar a usuarios distintos
-    // setValue("username",currentUser.username)
+    setTimeout(() => {
+        setValue('name', currentUser ? currentUser.name : ''); // para arreglar el problemas de que no actualiza el input en pantalla si le doy avarias veces a editar a usuarios distintos
+    }, 10); 
 
+    setTimeout(() => {
+        setValue('username', currentUser ? currentUser.username : '');   
+    }, 10);
+       
     const onSubmit= (data,e) =>{
         console.log(data)
         data.id=currentUser.id
